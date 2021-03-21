@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8"/>
+<head>
+    <title>Register</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script type="text/javascript">
+        var firstname =
+            document.forms["RegForm"]["FirstName"].value ;
+        var lastname =
+            document.forms["RegForm"]["LastName"].value;
+        var age =
+            document.forms["RegForm"]["Age"].value;
+        function Validate() {
+            if (firstname == "") {
+                alert("Please enter your fristname.");
+                firstname.focus();
+                return false;
+            }
+
+            if (lastname == "") {
+                alert("Please enter your lastname.");
+                lastname.focus();
+                return false;
+            }
+
+            if (age == "") {
+                alert("Please enter your age.");
+                age.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+<div class="container-sm" align="center">
+    <h1>Register</h1>
+    <br/>
+    <form onsubmit="return Validate()" action="#" method="post" name="RegForm"
+          th:action="@{/save}" th:object="${runner}">
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>FirstName:</td>
+                <td><input type="text" name="FirstName" th:field="*{firstName}" /></td>
+            </tr>
+            <tr>
+                <td>LastName:</td>
+                <td><input type="text" name="LastName" th:field="*{lastName}" /></td>
+            </tr>
+            <tr>
+                <td>Age:</td>
+                <td><input type="text" name="Age" th:field="*{age}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Submit</button></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

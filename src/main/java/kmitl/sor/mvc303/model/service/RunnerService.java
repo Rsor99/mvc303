@@ -17,7 +17,7 @@ public class RunnerService {
     RunnerRepository repository;
 
     public List<RunnerDTO>listAll(){
-        List<Runner> runners = repository.findAll();
+        List<Runner> runners = repository.findTop10();
         List<RunnerDTO> res = new ArrayList<>();
         for(Runner runloopset : runners){
             RunnerDTO runnerSet = new RunnerDTO();
@@ -25,7 +25,7 @@ public class RunnerService {
             runnerSet.setFirstName(runloopset.getFirstName());
             runnerSet.setLastName(runloopset.getLastName());
             runnerSet.setAge(runloopset.getAge());
-            runnerSet.setDistance(runloopset.getDistance());
+            runnerSet.setDistance(String.valueOf(runloopset.getDistance())+" Km");
             runnerSet.setPrize(runloopset.getPrize());
             res.add(runnerSet);
         }

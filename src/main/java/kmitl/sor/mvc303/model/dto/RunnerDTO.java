@@ -8,6 +8,6 @@ public class RunnerDTO {
     private String firstName;
     private String lastName;
     private int age;
-    private double distance;
+    private String distance;
     private String prize;
 }

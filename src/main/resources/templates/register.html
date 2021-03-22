@@ -34,6 +34,7 @@
             <input class="form-control" type="text" th:field="*{age}" id="age" placeholder="Age">
             <div class="alert alert-warning" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></div>
         </div>
+        <br/>
         <input type="submit"  class="btn btn-success" value="Add User">
     </form>
 </div>
